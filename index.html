@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen active">
+            <h1>🧠 Quiz Master</h1>
+            <p class="subtitle">Test your knowledge across multiple categories</p>
+            
+            <div class="category-selection">
+                <h2>Choose a Category</h2>
+                <div class="category-grid" id="category-grid">
+                    <!-- Categories populated by JS -->
+                </div>
+            </div>
+            
+            <div class="settings">
+                <label for="question-count">Number of Questions:</label>
+                <select id="question-count">
+                    <option value="5">5 Questions</option>
+                    <option value="10" selected>10 Questions</option>
+                    <option value="15">15 Questions</option>
+                </select>
+            </div>
+            
+            <button id="start-btn" class="btn btn-primary" disabled>Start Quiz</button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="screen">
+            <div class="quiz-header">
+                <div class="progress-info">
+                    <span id="question-counter">Question 1/10</span>
+                    <span id="category-label" class="category-badge">Science</span>
+                </div>
+                <div class="timer-container">
+                    <div class="timer" id="timer">
+                        <svg class="timer-svg" viewBox="0 0 100 100">
+                            <circle class="timer-bg" cx="50" cy="50" r="45"></circle>
+                            <circle class="timer-progress" id="timer-progress" cx="50" cy="50" r="45"></circle>
+                        </svg>
+                        <span class="timer-text" id="timer-text">30</span>
+                    </div>
+                </div>
+                <div class="score-display">
+                    Score: <span id="current-score">0</span>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+
+            <div class="question-container">
+                <h2 id="question-text" class="question-text">Loading question...</h2>
+                <div id="answers-container" class="answers-container">
+                    <!-- Answers populated by JS -->
+                </div>
+            </div>
+
+            <button id="next-btn" class="btn btn-secondary" disabled>Next Question</button>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <div class="results-content">
+                <div class="results-icon" id="results-icon">🏆</div>
+                <h1 id="results-title">Quiz Complete!</h1>
+                <p id="results-message" class="results-message">Great job!</p>
+                
+                <div class="score-card">
+                    <div class="score-main">
+                        <span id="final-score">0</span>
+                        <span class="score-divider">/</span>
+                        <span id="total-questions">10</span>
+                    </div>
+                    <p class="score-percentage" id="score-percentage">0%</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-value" id="correct-count">0</span>
+                        <span class="stat-label">Correct</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="wrong-count">0</span>
+                        <span class="stat-label">Wrong</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="avg-time">0s</span>
+                        <span class="stat-label">Avg Time</span>
+                    </div>
+                </div>
+
+                <div class="results-actions">
+                    <button id="retry-btn" class="btn btn-primary">Try Again</button>
+                    <button id="home-btn" class="btn btn-secondary">Choose Category</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
